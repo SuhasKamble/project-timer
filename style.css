@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    font-family: sans-serif;
+    position: relative;
+    
+}
+header{
+    position: absolute;
+    top: 5rem;
+} 
+header h1{
+    font-size: 4rem;
+    color: #a55eea;
+}     
+h1{
+    font-size: 3rem;
+}
+
+.input-container{
+    padding: 10px;
+    display: flex;
+}
+.input-container input{
+    font-size: 1rem;
+    padding: 0.4rem;
+    text-align: right;
+    border-radius: 5px;
+    /* border: none; */
+    outline: none;
+    margin: 0 5px;
+}
+
+.input-container input:focus{
+    box-shadow: 3px 4px 3px rgba(255, 255, 255, 1);
+}
+.btn{
+    background: #4b7bec;
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+}
+.btn:hover{
+    opacity: 0.6;
+}
+.output-container {
+    display: none;
+}
+.output-container .btn{
+  
+    margin: 1rem;
+}
+
+#time{
+    font-size: 6rem;
+}
+.btn-container{
+    margin-top: 0.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+@media(max-width:788px){
+    header h1{
+        font-size: 3rem;
+    }
+    .input-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .input-container .btn{
+        
+    }
+}

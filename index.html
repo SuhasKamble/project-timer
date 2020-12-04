@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Suhas Timer</h1>
+    </header>
+   <div class="main-container">
+       <form id="input" class="input-container">
+           <input type="number" id="hour" placeholder="H">
+           <input type="number" id="min" placeholder="M">
+           <input type="number" id="sec" placeholder="S">
+           <div class="btn-container">
+
+               <button class="btn" id="submit" type="submit">Start</button>
+           </div>
+       </form>
+       <div id="output" class="output-container">
+            <h1 id="time">10s</h1>
+   
+            <button class="btn" id="reset">Reset</button>
+            <button class="btn" id="back">Back</button>
+       </div>
+   </div>
+   <script src="app.js"></script>
+</body>
+</html>
