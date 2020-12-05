@@ -7,6 +7,8 @@ const output = document.getElementById('output')
 const timeDisplay  = document.getElementById('time')
 const reset = document.getElementById('reset')
 const back = document.getElementById('back')
+const progress= document.getElementById('progress')
+
 let isPlaying = false
 let timeRun 
 let totalHour = 0
@@ -29,7 +31,7 @@ submit.addEventListener('click',(e)=>{
     let totalSeconds = calHour+calMin+calSec
     let time = totalSeconds
     
-    
+    progress.style.animation=`prog ${time}s linear forwards`
     
 
 
@@ -41,19 +43,34 @@ submit.addEventListener('click',(e)=>{
      timeRun = setInterval(countDown,1000)
 
    function countDown(){
+    timeDisplay.classList.remove('opa')
         if(time>0){
             timeDisplay.style.color="#fff"
             time--;
+          
         }
-        else if(time==0){
-            timeDisplay.style.color="#eb3b5a"
-            reset.autofocus=true
-            audio.play()
-        }
-        if(time<=60){
+    
+            else if(time==0){
+                timeDisplay.style.color="#eb3b5a"
+                reset.autofocus=true
+                audio.play()
+            }
+           
+           
+            
+            if(time<=60){
+                if(time<10){
+                    timeDisplay.classList.add('opa')
+                
+                }
+                else{
+                    timeDisplay.classList.remove('opa')
+
+                }
             timeDisplay.innerHTML = time+'s'
         }   
         else{
+            timeDisplay.classList.remove('opa')
             console.log("high")
              totalHour = Math.floor(time/3600)
            //  console.log("hour",totalHour)
@@ -81,6 +98,8 @@ submit.addEventListener('click',(e)=>{
 
 
     reset.addEventListener('click',()=>{
+
+        progress.style.animation=`prog ${time}s linear forwards`
         // clearInterval(timeRun)
         clearInterval(timeRun)
         audio.pause()
