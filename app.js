@@ -9,6 +9,9 @@ const reset = document.getElementById('reset')
 const back = document.getElementById('back')
 let isPlaying = false
 let timeRun 
+let totalHour = 0
+let totalMin = 0
+let totalSec = 0
 
 const audio = new Audio('alarm.mp3')
 
@@ -25,10 +28,16 @@ submit.addEventListener('click',(e)=>{
     let calSec = sec.value *1
     let totalSeconds = calHour+calMin+calSec
     let time = totalSeconds
+    
+    
+    
+
+
     console.log(totalSeconds)
     input.style.display='none'
     output.style.display='block'
     isPlaying = true
+
      timeRun = setInterval(countDown,1000)
 
    function countDown(){
@@ -41,7 +50,32 @@ submit.addEventListener('click',(e)=>{
             reset.autofocus=true
             audio.play()
         }
-        timeDisplay.innerHTML = time+'s'
+        if(time<=60){
+            timeDisplay.innerHTML = time+'s'
+        }   
+        else{
+            console.log("high")
+             totalHour = Math.floor(time/3600)
+           //  console.log("hour",totalHour)
+             totalMin = Math.floor(time/60)
+             if(totalMin<10){
+                totalMin = `0${totalMin}`
+            }
+             if(totalMin<=60){
+                 totalMin = totalMin
+             }
+             else{
+                totalMin =  Math.floor(totalMin%60)
+             }
+             console.log("min",totalMin)
+             totalSec = time % 60
+             if(totalSec<10){
+                 totalSec = `0${totalSec}`
+             }
+            
+             timeDisplay.innerHTML = `${totalHour}:${totalMin}:${totalSec}`
+        }
+           
     }
 
 
